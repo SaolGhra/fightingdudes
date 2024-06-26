@@ -19,31 +19,71 @@
   padding: 20px;
 }
 
+/* player health */
 .player-parent {
   position: relative;
+  height: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.player-health-bar {
+  background-color: yellow;
   height: 30px;
   width: 100%;
 }
 
 .player-health {
-  background-color: yellow;
-  height: 30px;
+  position: absolute;
+  background: blue;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
 }
 
+/* Timer */
 .timer {
   background-color: red;
   width: 100px;
   height: 100px;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* enemy health */
 .enemy-parent {
   position: relative;
   height: 30px;
   width: 100%;
 }
 
-.enemy-health {
+.enemy-health-bar {
   background-color: yellow;
   height: 30px;
+}
+
+.enemy-health {
+  position: absolute;
+  background: blue;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/* if theres a tie */
+.tie-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

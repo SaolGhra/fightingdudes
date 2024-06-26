@@ -13,17 +13,20 @@
       <div class="small-red">
         <!-- player health -->
         <div class="player-parent">
+          <div class="player-health-bar" id="player-health-bar"></div>
           <div class="player-health" id="player-health"></div>
-          <div style="position: absolute; background: red"></div>
         </div>
         <!-- timer -->
-        <div class="timer"></div>
+        <div class="timer" id="timer"></div>
         <!-- enemy health -->
         <div class="enemy-parent">
+          <div class="enemy-health-bar" id="enemy-health-bar"></div>
           <div class="enemy-health" id="enemy-health"></div>
-          <div style="position: absolute; background: blue"></div>
         </div>
       </div>
+
+      <div class="tie-container" id="displayText"></div>
+      <!-- canvas -->
       <canvas></canvas>
     </div>
 
