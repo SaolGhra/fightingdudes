@@ -73,6 +73,14 @@ const player = new Fighter({
       framesMax: 6,
     },
   },
+  attackBox: {
+    offset: {
+      x: 100,
+      y: 50,
+    },
+    width: 160,
+    height: 50,
+  },
 });
 
 const enemy = new Fighter({
@@ -92,6 +100,44 @@ const enemy = new Fighter({
   imageSrc: "./assets/kenji/idle.png",
   framesMax: 4,
   scale: 2.5,
+  offset: {
+    x: 215,
+    y: 167,
+  },
+  sprites: {
+    idle: {
+      imageSrc: "./assets/kenji/idle.png",
+      framesMax: 4,
+    },
+
+    run: {
+      imageSrc: "./assets/kenji/run.png",
+      framesMax: 8,
+    },
+
+    jump: {
+      imageSrc: "./assets/kenji/jump.png",
+      framesMax: 2,
+    },
+
+    fall: {
+      imageSrc: "./assets/kenji/fall.png",
+      framesMax: 2,
+    },
+
+    attack1: {
+      imageSrc: "./assets/kenji/attack1.png",
+      framesMax: 4,
+    },
+  },
+  attackBox: {
+    offset: {
+      x: -170,
+      y: 50,
+    },
+    width: 170,
+    height: 50,
+  },
 });
 
 const keys = {
@@ -149,8 +195,19 @@ function animate() {
   // Enemy Movement
   if (keys.ArrowLeft.pressed && enemy.lastKey === "ArrowLeft") {
     enemy.velocity.x = -5;
+    enemy.switchSprite("run");
   } else if (keys.ArrowRight.pressed && enemy.lastKey === "ArrowRight") {
     enemy.velocity.x = 5;
+    enemy.switchSprite("run");
+  } else {
+    enemy.switchSprite("idle");
+  }
+
+  // Enemy Jumping
+  if (enemy.velocity.y < 0) {
+    enemy.switchSprite("jump");
+  } else if (enemy.velocity.y > 0) {
+    enemy.switchSprite("fall");
   }
 
   // Collision detection
@@ -159,23 +216,36 @@ function animate() {
       rectangle1: player,
       rectangle2: enemy,
     }) &&
-    player.isAttacking
+    player.isAttacking &&
+    player.framesCurrent === 4
   ) {
     player.isAttacking = false;
     enemy.health -= 10;
     document.querySelector("#enemy-health").style.width = enemy.health + "%";
   }
 
+  // if player misses the attack
+  if (player.isAttacking && player.framesCurrent === 4) {
+    player.isAttacking = false;
+  }
+
+  // enemy colission detection
   if (
     rectangularCollision({
       rectangle1: enemy,
       rectangle2: player,
     }) &&
-    enemy.isAttacking
+    enemy.isAttacking &&
+    enemy.framesCurrent === 2
   ) {
     enemy.isAttacking = false;
     player.health -= 10;
     document.querySelector("#player-health").style.width = player.health + "%";
+  }
+
+  // if enemy misses the attack
+  if (enemy.isAttacking && enemy.framesCurrent === 2) {
+    enemy.isAttacking = false;
   }
 
   // End game if health is 0
