@@ -188,6 +188,9 @@ function animate() {
   background.update();
   shop.update();
 
+  ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
   player.update();
   enemy.update();
 
@@ -241,7 +244,10 @@ function animate() {
   ) {
     enemy.takeHit();
     player.isAttacking = false;
-    document.querySelector("#enemy-health").style.width = enemy.health + "%";
+    // document.querySelector("#enemy-health").style.width = enemy.health + "%";
+    gsap.to("#enemy-health", {
+      width: enemy.health + "%",
+    });
   }
 
   // if player misses the attack
@@ -260,7 +266,10 @@ function animate() {
   ) {
     player.takeHit();
     enemy.isAttacking = false;
-    document.querySelector("#player-health").style.width = player.health + "%";
+    // document.querySelector("#player-health").style.width = player.health + "%";
+    gsap.to("#player-health", {
+      width: player.health + "%",
+    });
   }
 
   // if enemy misses the attack
