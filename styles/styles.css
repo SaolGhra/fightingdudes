@@ -5,6 +5,14 @@
 * {
   box-sizing: border-box;
   font-family: "Press Start 2P", system-ui;
+  overflow-y: hidden;
+}
+
+.outer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .big-red {

@@ -4,6 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FightingDudes</title>
+    <!-- Seo -->
+    <meta
+      name="description"
+      content="FightingDudes is a game where you fight against an enemy. You have to defeat the enemy before the time runs out. Good luck!"
+    />
+    <meta name="keywords" content="FightingDudes, game, fighting" />
+    <meta name="author" content="SaolGhra" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <!-- OpenGraph -->
+    <meta property="og:title" content="FightingDudes" />
+    <meta
+      property="og:description"
+      content="FightingDudes is a game where you fight against an enemy. You have to defeat the enemy before the time runs out. Good luck!"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://www.saolghra.co.uk/fightingdudes/"
+    />
+    <meta
+      property="og:image"
+      content="https://www.saolghra.co.uk/fightingdudes/assets/logo.png"
+    />
+    <meta property="og:site_name" content="FightingDudes" />
+    <meta property="og:locale" content="en_GB" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@saolghra" />
+    <meta name="twitter:title" content="FightingDudes" />
+    <meta
+      name="twitter:description"
+      content="FightingDudes is a game where you fight against an enemy. You have to defeat the enemy before the time runs out. Good luck!"
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.saolghra.co.uk/fightingdudes/assets/logo.png"
+    />
+    <meta name="twitter:creator" content="@saolghra" />
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/logo.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/logo.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/logo.png" />
+    <meta name="theme-color" content="#c0cef7" />
+    <meta name="author" content="SaolGhra" />
+    <!-- Styles -->
     <link rel="stylesheet" href="styles/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,28 +58,44 @@
       rel="stylesheet"
     />
   </head>
-  <body>
-    <!-- red container -->
-    <div class="big-red">
-      <!-- smaller red container -->
-      <div class="small-red">
-        <!-- player health -->
-        <div class="player-parent">
-          <div class="player-health-bar" id="player-health-bar"></div>
-          <div class="player-health" id="player-health"></div>
-        </div>
-        <!-- timer -->
-        <div class="timer" id="timer"></div>
-        <!-- enemy health -->
-        <div class="enemy-parent">
-          <div class="enemy-health-bar" id="enemy-health-bar"></div>
-          <div class="enemy-health" id="enemy-health"></div>
-        </div>
-      </div>
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-HME8PQRCDV"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-      <div class="tie-container" id="displayText"></div>
-      <!-- canvas -->
-      <canvas></canvas>
+    gtag("config", "G-HME8PQRCDV");
+  </script>
+  <body>
+    <div class="outer-container">
+      <!-- red container -->
+      <div class="big-red">
+        <!-- smaller red container -->
+        <div class="small-red">
+          <!-- player health -->
+          <div class="player-parent">
+            <div class="player-health-bar" id="player-health-bar"></div>
+            <div class="player-health" id="player-health"></div>
+          </div>
+          <!-- timer -->
+          <div class="timer" id="timer"></div>
+          <!-- enemy health -->
+          <div class="enemy-parent">
+            <div class="enemy-health-bar" id="enemy-health-bar"></div>
+            <div class="enemy-health" id="enemy-health"></div>
+          </div>
+        </div>
+
+        <div class="tie-container" id="displayText"></div>
+        <!-- canvas -->
+        <canvas></canvas>
+      </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
